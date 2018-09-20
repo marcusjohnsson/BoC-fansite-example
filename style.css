@@ -1,0 +1,359 @@
+
+body{
+    margin:0;
+    padding: 0;
+}
+#htmlhome {
+    margin: 0; 
+    padding:0;
+    height: 100%;
+    background-image: url("imgs/bg.jpg" );
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+header {
+    margin-top: 44px;
+    margin-bottom: 44px;
+    background-color: #F9F7D7;
+    height: 100%;
+    width: 100%;
+
+}
+#topnav {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+#topnav > ul{
+    display: inline-block;
+	list-style-type:  none;
+	text-decoration: none;
+	padding: 0px ;
+	margin: 0 auto; 
+    overflow: hidden;    
+}
+#topnav ul > li {
+	padding: 11px;
+	margin: 0;
+    float: left;
+
+}
+#topnav > ul > li + li {
+	margin-left: 15px;
+
+}
+#topnav ul > li > a {
+	text-decoration: none;
+    color: darkcyan;
+    font-size: 16px; 
+	
+}
+
+#topnav >ul> li> a {
+    transition: all 2s;
+  }
+  
+  #topnav >ul >li> a:after {
+    text-align: left;
+    content: ' ';
+    margin: 0;
+    opacity: 0;
+  }
+  #topnav >ul >li >a:hover {
+    color: goldenrod;
+    z-index: 1;
+  }
+  #topnav > ul > li > a:hover:after {
+    z-index: -10;
+    animation: fill 1s forwards;
+    -webkit-animation: fill 1s forwards;
+    -moz-animation: fill 1s forwards;
+    opacity: 1;
+  }
+     .active {
+         font-weight: bolder
+     }
+ 
+
+  /******************homepage********/
+
+  #blackbox {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: black;
+      opacity: 0.5;
+      text-align: left;
+  }
+  #blackbox > h1 ,h2  {
+      color: goldenrod;
+      font-family: "ocr a extended", sans-serif;
+      margin: 22px;
+  }
+  #blackbox > h2  {
+    font-size: 16px;
+    padding-top: 0;
+  }
+
+
+/********************* My goods ********/
+ #htmlGoods {
+    margin: 0; 
+    padding:0;
+    background-image: url("imgs/bgtwo.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+#listofsongs {
+    width: 400px;
+    background-color: black;
+    opacity: 0.5;
+    border-radius: 4px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 44px;
+}
+#listofsongs > ul {
+    list-style: none;
+  text-align: center;
+  padding: 11px 22px;
+}
+#listofsongs > ul > li {
+    width: 50%;
+    border-bottom: solid 1px darkcyan;
+    margin: auto auto;
+    padding: 22px;
+    color: goldenrod;
+    font-family: "ocr a extended", sans-serif; 
+    
+}
+button  {
+    font-family: "ocr a extended", sans-serif; 
+    background-color: darkcyan;
+    color: white;
+    margin: 11px;
+    margin-left: 144px;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+button:hover {
+    background-color: goldenrod;
+}
+
+
+
+/******************* about us************/
+
+#abouthtml {
+    margin: 0; 
+    padding:0;
+    background-image: url("imgs/member.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+#everything {
+    width: 100%;
+    overflow: hidden;
+}
+.aboutBox {
+    float: left;
+    width: 25%;
+    background-color: black;
+    opacity: 0.5;
+    margin: 10% 0 22px 22px;
+    padding: 22px;
+}
+#upcoming {
+    width: 30%;
+    float: left;
+    background-color: black;
+    opacity: 0.5;
+    margin: 25% 0 22px 22px;
+    padding: 11px;
+
+}
+#Location {
+    width: 30%;
+    float: left;
+    background-color: black;
+    opacity: 0.5;
+    margin: 25% 0 22px 22px;
+    padding: 11px;
+}
+#Location > h3{
+    font-size: 32px;
+    padding: 0;
+    margin: 0;
+}
+#Location > h1{
+    margin: 0; 
+    padding: 0;
+}
+
+
+#upcoming , #Location, .aboutBox > p {
+    font-family: "ocr a extended", sans-serif;    
+    color: goldenrod;
+
+    
+}
+
+/***************** browse***************/
+#browseHtml , #SearchResultHtml {
+    margin: 0; 
+    padding:0;
+    height: 100%;
+    background-image: url("imgs/browse.jpg");
+    background-repeat:r ;
+    background-size:cover;
+}
+
+
+
+#formBox {
+    font-family: "ocr a extended", sans-serif;    
+    color: darkcyan;
+    margin-left: 30%;
+}
+
+  #Aname {
+    color: darkcyan;
+    padding: 11px 22px;
+    margin: 22px 22px;
+    margin-top: 0;
+    display: inline-block;
+    border: 1px solid darkcyan;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #F9F7D7;
+    
+}
+
+
+ input[type=submit] {
+    background-color: darkcyan;
+    color: white;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+ input[type=submit]:hover {
+    background-color:  goldenrod;
+}
+
+.lists{
+    overflow: hidden;
+    width: 100%;
+}
+.albumcontainer{
+    background-color: black;
+    opacity: 0.5;
+    width: 40%;
+    margin: auto auto;
+    height: 400px;
+    color: goldenrod;
+    font-family: "ocr a extended", sans-serif;  
+    padding: 33px; 
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+.albumcontainerSearch {
+    background-color: black;
+    opacity: 0.5;
+    width: 40%;
+    margin: auto auto;
+    height: 400px;
+    color: goldenrod;
+    font-family: "ocr a extended", sans-serif;  
+    padding: 33px; 
+}
+.album {
+    border: dashed 1px goldenrod;
+    padding: 11px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 11px;
+}
+
+
+.tracks {
+    margin-left: 22px;
+    font-size: 12px;
+}
+
+#seeMe {
+    float: right;
+    padding: 5px;
+    font-size: 10px;
+    margin: 0;
+    background-color: goldenrod;
+}
+
+#seeMe:hover {
+    background-color: darkcyan;
+}
+
+/*********************contact****************/
+
+#bgThree {
+    margin: 0; 
+    padding:0;
+    height: 100%;
+    background-image: url("imgs/bgthree.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.container {
+    width: 30%;
+    height: 50%;
+    background-color: black;
+    opacity: 0.5;
+    border-radius: 4px;
+    margin-left: 62%;
+    margin-top: 5%;
+    color: goldenrod;
+    font-family: "ocr a extended", sans-serif;
+    padding: 22px;
+    
+}
+
+#fname ,#lname , #country , #subject {
+    color: darkcyan;
+    width: 25%;
+    padding: 11px 22px;
+    margin: 22px 22px;
+    border: 1px solid darkcyan;
+    border-radius: 6px;
+    background-color: #F9F7D7;
+    display: block;
+    
+}
+#subject {
+    width: 75%;
+    height: 44px;
+    
+}
+input[name=contactSubmit]{
+   margin-left: 70%;
+}
+
+
+
+
+
+
+
+
+
+
