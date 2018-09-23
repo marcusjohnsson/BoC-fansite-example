@@ -46,10 +46,12 @@
 										echo '<br>'."<div class='album'>".$row['albumName'].' '.$row['albumDueDate'].'</div>';
 									}
 									$tracksId = $row['tracksId'];
-									$tracksName = $row['tracksName'];
+									
 									echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration']."<form action='add.php' method='post'><input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>+</button></div></form><br>";		
 								};
 							};	
+
+							
 
 					?>
 				</div>	

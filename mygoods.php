@@ -15,22 +15,18 @@
 				<?php include('header.php'); ?>
 			</header>
 
-				<div id= "listofsongs">
+				<div class= "albumcontainer">
 					<?php
 					// selecting all the data in fav table
-					$sqlSelect = "SELECT * FROM Favorite JOIN tracks ON tracks.tracksName = Favorite.tracksName";
-					$results= mysqli_query($conn, $sql);
+					$sqlSelect = "SELECT tracksId, tracksName FROM Favorite Order by tracksId";
+					$results= mysqli_query($conn, $sqlSelect);
+
 					//display all the records
-					$queryResult = mysqli_num_rows($result);
-
-
+					$queryResults = mysqli_num_rows($results);
 					if ($queryResults > 0){
 						while ($row = mysqli_fetch_assoc($results)) {
-						echo "	<ul>
-									<li>
-									".$row['tracksName']."
-									</li>
-								</ul>";
+							$tracksId = $row['tracksId'];
+						echo  "<div class='tracks'>".$row['tracksId']." ".$row['tracksName']."<form action='remove.php' method='post'><input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>-</button></div></form><br>";
 						}
 					}else {
 					echo "There is no tracks to show! Go to the browse page to find your favorite tracks!";

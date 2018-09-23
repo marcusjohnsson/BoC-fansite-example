@@ -37,21 +37,26 @@
                         //to make sure the data user types is safe and that they try to do any injections into our database
                         $search = mysqli_real_escape_string($conn, $_POST['ArtistsName']);
                         $sql = "SELECT * FROM albums JOIN tracks ON albums.albumId = tracks.albumId WHERE albumName  LIKE '%$search%' OR albumDueDate LIKE '%$search%' OR tracksName LIKE '%$search%'";
-                        $result= mysqli_query($conn, $sql);
-                        $queryResult = mysqli_num_rows($result);
+                        $results = mysqli_query($conn,$sql);
+                        $queryResults = mysqli_num_rows($results);
+                    
 
-                        if( $queryResult > 0){
+                        if ($queryResults > 0) {
                             $lastAlbum = null;
-                             $queryResult = mysqli_num_rows($result);
+                            while ($row = mysqli_fetch_assoc($results)) {
+                                    
                                 if ($row['albumName'] !== $lastAlbum){
                                     $lastAlbum = $row['albumName'];
-									echo '<br>'."<div class='album'>".$row['albumName'].' '.$row['albumDueDate'].'</div>';
-								}
-								echo "<div class = 'tracks'>".$row['tracksName'].' '.$row['tracksDuration'].'<button type="button">+</button>'.'</div>'.'<br>';
-                            }
+                                    echo '<br>'."<div class='album'>".$row['albumName'].' '.$row['albumDueDate'].'</div>';
+                                }
+                                $tracksId = $row['tracksId'];
+                                $tracksName = $row['tracksName'];
+                                echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration']."<form action='add.php' method='post'><input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>+</button></div></form><br>";		
+                            };
                         }else {
-                            echo "There are no results matching your search!";
+                            echo "There is no results matching your search!";
                         }
+
 
                     }
                     
