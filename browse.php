@@ -8,6 +8,8 @@
 		<title>Browse page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+		<script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+		<script src="add.js"></script>
 	</head>
 		<body id="browse">
 			<div id="contentContainer">	
@@ -29,30 +31,29 @@
 			
 			<div class="lists">
 				<div class="albumcontainer">
-				<?php 
-						$sql= "SELECT  albumName, albumDueDate, tracksName, tracksDuration FROM albums JOIN tracks ON albums.albumId = tracks.albumId ORDER BY albums.albumName";
-                        $results = mysqli_query($conn,$sql);
-						$queryResults = mysqli_num_rows($results);
+					<?php 
+							$sql= "SELECT  albumName, albumDueDate, tracksId,tracksName, tracksDuration FROM albums JOIN tracks ON albums.albumId = tracks.albumId ORDER BY albums.albumName";
+							$results = mysqli_query($conn,$sql);
+							$queryResults = mysqli_num_rows($results);
+						
 
-						if ($queryResults > 0) {
-							$lastAlbum = null;
-							while ($row = mysqli_fetch_assoc($results)) {
-								if ($row['albumName'] !== $lastAlbum){
-                                    $lastAlbum = $row['albumName'];
-									echo "<div class='album'>".$row['albumName'].'<input id ="seeMe" type="submit"  name="submit">'.'</div>';
-								}
-								echo "<div class = 'tracks'>".$row['tracksName'].'</div>'.'<br>';
-								
-							}
-						}
+							if ($queryResults > 0) {
+								$lastAlbum = null;
+								while ($row = mysqli_fetch_assoc($results)) {
+										
+									if ($row['albumName'] !== $lastAlbum){
+										$lastAlbum = $row['albumName'];
+										echo '<br>'."<div class='album'>".$row['albumName'].' '.$row['albumDueDate'].'</div>';
+									}
+									$tracksId = $row['tracksId'];
+									$tracksName = $row['tracksName'];
+									echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration']."<form action='add.php' method='post'><input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>+</button></div></form><br>";		
+								};
+							};	
+
 					?>
-
-				</div>
-				
+				</div>	
 			</div>
-
-
-
 			</div>
 		</body>
 </html>

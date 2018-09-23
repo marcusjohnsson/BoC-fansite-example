@@ -42,12 +42,12 @@
 
                         if( $queryResult > 0){
                             $lastAlbum = null;
-                            while($row = mysqli_fetch_assoc($result) ){
+                             $queryResult = mysqli_num_rows($result);
                                 if ($row['albumName'] !== $lastAlbum){
                                     $lastAlbum = $row['albumName'];
-									echo '<br>'."<div class='album'>".$row['albumName'].'<input id ="seeMe" type="submit"  name="submit">'.'</div>';
+									echo '<br>'."<div class='album'>".$row['albumName'].' '.$row['albumDueDate'].'</div>';
 								}
-								echo "<div class = 'tracks'>".$row['tracksName'].'</div>'.'<br>';
+								echo "<div class = 'tracks'>".$row['tracksName'].' '.$row['tracksDuration'].'<button type="button">+</button>'.'</div>'.'<br>';
                             }
                         }else {
                             echo "There are no results matching your search!";
@@ -56,12 +56,13 @@
                     }
                     
                     ?>
+                    	
+                    </div>
+                </div>
+
+
+
             </div>
-        </div>
-
-
-
-			</div>
 		</body>
 </html>
 

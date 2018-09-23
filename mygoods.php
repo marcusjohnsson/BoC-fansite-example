@@ -16,33 +16,27 @@
 			</header>
 
 				<div id= "listofsongs">
-					<ul>
-							<li>
-							Sixtyniner
-							</li>
-							<button class="remove">Remove</button>
-							<li>
-							Oirectine
-							</li>
-							<button class="remove">Remove</button>
+					<?php
+					// selecting all the data in fav table
+					$sqlSelect = "SELECT * FROM Favorite JOIN tracks ON tracks.tracksName = Favorite.tracksName";
+					$results= mysqli_query($conn, $sql);
+					//display all the records
+					$queryResult = mysqli_num_rows($result);
 
-							<li>
-							Twoism
-							</li>
-							<button class="remove">Remove</button>
 
-							<li>
-							Seeya Later
-							</li>
-							<button class="remove">Remove</button>
-
-							<li>
-							Melissa Juice
-							</li>
-							<button class="remove">Remove</button>
-
-					</ul>   
-					            
+					if ($queryResults > 0){
+						while ($row = mysqli_fetch_assoc($results)) {
+						echo "	<ul>
+									<li>
+									".$row['tracksName']."
+									</li>
+								</ul>";
+						}
+					}else {
+					echo "There is no tracks to show! Go to the browse page to find your favorite tracks!";
+					}
+					
+					?>
 				</div>
 
 			</div>

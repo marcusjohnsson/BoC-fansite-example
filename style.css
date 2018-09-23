@@ -115,6 +115,7 @@ header {
     margin: 0 auto;
     text-align: center;
     margin-bottom: 44px;
+    color: goldenrod;
 }
 #listofsongs > ul {
     list-style: none;
@@ -132,13 +133,12 @@ header {
 }
 button  {
     font-family: "ocr a extended", sans-serif; 
+    font-size: 15px;
     background-color: darkcyan;
     color: white;
-    margin: 11px;
-    margin-left: 144px;
-    padding: 11px 22px;
+    margin-left: 11px;
     border: none;
-    border-radius: 4px;
+    border-radius: 50%;
     cursor: pointer;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
@@ -287,8 +287,9 @@ button:hover {
 
 
 .tracks {
-    margin-left: 22px;
     font-size: 12px;
+    display: -webkit-box;
+
 }
 
 #seeMe {
