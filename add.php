@@ -4,32 +4,28 @@ include('header.php');
 //posting the selected track from the user
 $postedResult= $_POST['tracks'];
 
-//check if the selected track already exist in the fav table
-$sqlCheck = "SELECT COUNT(*) FROM Favorite WHERE tracksId= $postedResult ";
-$check = mysqli_query($conn,$sqlCheck);
 
-if ($check >= 1)
-    {
-       
-       echo "<script>alert('This track already exists in your favorite list!');</script>";
-        exit();
+        //updating the tracks table
+        $sqlUpdate ="UPDATE tracks SET reserved = 1 WHERE tracksId = $postedResult ";
+        $query = $conn->query($sqlUpdate );
 
-        
-    }
+        //getting the tracks Name according the tracks Id
+        $sqlFetch = "SELECT tracksId, tracksName, reserved FROM tracks Where tracksId = $postedResult";
 
-            //getting the tracks Name according the tracks Id
-        $sqlFetch = "SELECT tracksId, tracksName FROM tracks Where tracksId = $postedResult";
-        $result = $conn->query($sqlFetch);
+        $result = $conn->query($sqlFetch );
         $queryResult = mysqli_num_rows($result);
         if($queryResult > 0){
             while($row=mysqli_fetch_assoc($result)){
             $trackId= $row['tracksId'];
             $tracksName = $row['tracksName'];
+            $reserved =$row['reserved'];
+        
             }
         };
 
+
         //inserting the fav track into the fav table in db
-        $sql= "INSERT INTO Favorite (tracksId, tracksName)  VALUES ($trackId, '$tracksName')";
+        $sql= "INSERT INTO Favorite (tracksId, tracksName, reserved) VALUES ($trackId, '$tracksName','$reserved')";
         $conn->query($sql);
 
 

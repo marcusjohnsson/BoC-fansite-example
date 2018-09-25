@@ -18,7 +18,7 @@
 				<div class= "albumcontainer">
 					<?php
 					// selecting all the data in fav table
-					$sqlSelect = "SELECT tracksId, tracksName FROM Favorite Order by tracksId";
+					$sqlSelect = "SELECT tracksId, tracksName, reserved FROM Favorite ";
 					$results= mysqli_query($conn, $sqlSelect);
 
 					//display all the records
@@ -26,8 +26,12 @@
 					if ($queryResults > 0){
 						while ($row = mysqli_fetch_assoc($results)) {
 							$tracksId = $row['tracksId'];
+							$reserved = $row['reserved'];
+
+							if($reserved == 1){
 						echo  "<div class='tracks'>".$row['tracksId']." ".$row['tracksName']."<form action='remove.php' method='post'><input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>-</button></div></form><br>";
 						}
+					}
 					}else {
 					echo "There is no tracks to show! Go to the browse page to find your favorite tracks!";
 					}

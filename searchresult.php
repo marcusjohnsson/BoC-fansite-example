@@ -51,8 +51,15 @@
                                 }
                                 $tracksId = $row['tracksId'];
                                 $tracksName = $row['tracksName'];
-                                echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration']."<form action='add.php' method='post'><input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>+</button></div></form><br>";		
-                            };
+                                $reserved = $row['reserved'];
+                                
+                                if ($reserved == 1){
+                                    echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration']."<p>already added</p></div><br>";		
+
+                                }else if ($reserved == 0){
+                                    echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration'].$row['tracks.reserved']."<form action='add.php' method='post'><input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>+</button></div></form><br>";		
+
+                                }                            };
                         }else {
                             echo "There is no results matching your search!";
                         }

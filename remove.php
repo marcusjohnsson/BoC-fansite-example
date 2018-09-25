@@ -18,6 +18,13 @@ if($queryResult > 0){
 //deleting the fav track from the fav table in db
  $sql= "DELETE FROM Favorite WHERE tracksId='$trackId'";
 $conn->query($sql);
+
+//updating reserved valu from tracks database
+        
+$sqlUpdate ="UPDATE tracks SET reserved = 0 WHERE tracksId = $postedResult ";
+$query = $conn->query($sqlUpdate );
+
+
 header('Location: mygoods.php');
 ?>
 

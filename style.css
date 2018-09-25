@@ -291,6 +291,11 @@ button:hover {
     display: -webkit-box;
 
 }
+.tracks > p {
+    color: darkcyan;
+    margin: 0;
+    margin-left: 20px;
+}
 
 #seeMe {
     float: right;

@@ -32,26 +32,38 @@
 			<div class="lists">
 				<div class="albumcontainer">
 					<?php 
-							$sql= "SELECT  albumName, albumDueDate, tracksId,tracksName, tracksDuration FROM albums JOIN tracks ON albums.albumId = tracks.albumId ORDER BY albums.albumName";
+							$sql= "SELECT  albums.albumName, albums.albumDueDate, tracks.tracksId,tracks.tracksName, tracks.tracksDuration, tracks.reserved 
+							FROM albums 
+							JOIN tracks 
+							ON albums.albumId = tracks.albumId 
+							ORDER BY albums.albumName";
+
 							$results = mysqli_query($conn,$sql);
 							$queryResults = mysqli_num_rows($results);
-						
 
 							if ($queryResults > 0) {
 								$lastAlbum = null;
 								while ($row = mysqli_fetch_assoc($results)) {
-										
+										// echo "<pre>";
+										// var_dump($row);
+										// echo '</pre>';
 									if ($row['albumName'] !== $lastAlbum){
 										$lastAlbum = $row['albumName'];
 										echo '<br>'."<div class='album'>".$row['albumName'].' '.$row['albumDueDate'].'</div>';
 									}
 									$tracksId = $row['tracksId'];
-									
-									echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration']."<form action='add.php' method='post'><input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>+</button></div></form><br>";		
-								};
-							};	
+									$tracksName = $row['tracksName'];
+									$reserved = $row['reserved'];
 
-							
+									if ($reserved == 1){
+										echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration']."<p>added to favorites!</p></div><br>";		
+
+									}else if ($reserved == 0){
+										echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration'].$row['tracks.reserved']."<form action='add.php' method='post'><input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>+</button></div></form><br>";		
+
+									}
+								};
+							}
 
 					?>
 				</div>	
@@ -59,3 +71,6 @@
 			</div>
 		</body>
 </html>
+
+
+
