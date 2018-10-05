@@ -11,7 +11,7 @@
 		<body id="Contact">
 			<div id="contentContainer">
 			<header>	
-				<?php include('header.php');?>
+				<?php include('includes/header.php');?>
 			</header>
 
 				<div class="container" style= "height:500px">

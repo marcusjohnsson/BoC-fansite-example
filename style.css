@@ -1,17 +1,5 @@
 
-body{
-    margin:0;
-    padding: 0;
-}
-#htmlhome {
-    margin: 0; 
-    padding:0;
-    height: 100%;
-    background-image: url("imgs/bg.jpg" );
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size:cover;
-}
+
 
 header {
     margin-top: 44px;
@@ -75,10 +63,80 @@ header {
      .active {
          font-weight: bolder
      }
- 
+     /****login****/
+     #loginbody{
+        margin: 0; 
+        padding:0;
+        height: 100%;
+        background-image: url(imgs/bgbg.jpg);
+        background-repeat: no-repeat;
+        background-size:cover;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     }
+     #login {
+         border: solid 1px #ccc;
+         width: 50%;
+         height: 60%;
+         display: inline-block;
+         margin-top: 10%;
+         background-color: beige;
+     }
+     #login  form  input {
+
+        width: 200px;
+        height: 40px;
+        padding: 0 10px;
+        margin-bottom: 10px;
+        background-color: bisque;
+        font-size: 14px;
+        border: none;
+        line-height: 40px;
+     }
+    
+     #login  form  input[name=first]{
+        margin-top: 50px;
+    }
+    #login  form  input[name=userid]{
+        margin-top: 80px;
+    }
+     
+     #login  form  button {
+        width: 80px;
+        height: 30px;
+        margin-bottom: 10px;
+        background-color:darkcyan;
+        line-height: 30px;
+        border-radius: 5%;
+        cursor: pointer;
+        
+     }
+     
+     #login p a {
+         text-decoration: none;
+         color: darkcyan;
+     }
+     #login p a:hover {
+         color: goldenrod;
+         cursor: pointer;
+     }
+
+
+     
 
   /******************homepage********/
-
+    body{
+        margin:0;
+        padding: 0;
+    }
+    #htmlhome {
+        margin: 0; 
+        padding:0;
+        background-image: url("imgs/bg.jpg" );
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
   #blackbox {
       width: 100%;
       position: absolute;
@@ -100,7 +158,7 @@ header {
 
 
 /********************* My goods ********/
- #htmlGoods {
+ #myGoods {
     margin: 0; 
     padding:0;
     background-image: url("imgs/bgtwo.jpg");

@@ -1,7 +1,7 @@
     
     
-	<?php include ('config.php');
-			include ('dbh.php');
+	<?php include ('includes/config.php');
+			include ('includes/dbh.php');
 	?>
 
     <nav id="topnav">
@@ -22,7 +22,8 @@
 								<a class="<?php echo ($currentPage == 'contact.php') ? 'active' : NULL ?>"  href="contact.php">Contact us</a>
 							</li>
 						</ul>    
-						            
+
+					
 					</nav>
 
     

@@ -12,7 +12,7 @@
 			<div id="contentContainer">
 			<header>	
 				
-				<?php include('header.php'); ?>
+				<?php include('includes/header.php'); ?>
 			</header>
 
 				<div class= "albumcontainer">
@@ -29,7 +29,9 @@
 							$reserved = $row['reserved'];
 
 							if($reserved == 1){
-						echo  "<div class='tracks'>".$row['tracksId']." ".$row['tracksName']."<form action='remove.php' method='post'><input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>-</button></div></form><br>";
+						echo  "<div class='tracks'>".$row['tracksId']." ".$row['tracksName']."<form action='remove.php' method='post'>
+						<input type='hidden' name='tracks' value=' $tracksId'>
+						<button type='submit'>-</button></div></form><br>";
 						}
 					}
 					}else {

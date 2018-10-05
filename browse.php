@@ -7,14 +7,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Browse page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-		<script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
-		<script src="add.js"></script>
+		<link rel="stylesheet" type="text/css" media="screen" href="style.css" /> 		
 	</head>
 		<body id="browse">
 			<div id="contentContainer">	
 			<header>	
-				<?php include('header.php');?>
+				<?php include('includes/header.php');?>
 				
 			</header>
 			<div id="formBox">
@@ -59,7 +57,8 @@
 										echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration']."<p>added to favorites!</p></div><br>";		
 
 									}else if ($reserved == 0){
-										echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration'].$row['tracks.reserved']."<form action='add.php' method='post'><input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>+</button></div></form><br>";		
+										echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration'].$row['tracks.reserved']."<form action='add.php' method='post'>
+										<input type='hidden' name='tracks' value=' $tracksId'><button type='submit'>+</button></div></form><br>";		
 
 									}
 								};
