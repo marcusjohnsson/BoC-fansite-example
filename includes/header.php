@@ -1,13 +1,14 @@
     
-    
-	<?php include ('includes/config.php');
-			include ('includes/dbh.php');
+	<?php 
+	session_start();
+	include ('includes/config.php');
+	include ('includes/dbh.php');
 	?>
 
     <nav id="topnav">
 						<ul>
 							<li>
-								<a class="<?php echo ($currentPage == 'index.php' || $currentPage == '') ? 'active' : NULL ?>" href="index.php">Home</a>
+								<a class="<?php echo ($currentPage == 'home.php' || $currentPage == '') ? 'active' : NULL ?>" href="home.php">Home</a>
 							</li>
 							<li>
                             <a class="<?php echo ($currentPage == 'mygoods.php') ? 'active' : NULL ?>" href="mygoods.php">My music</a>

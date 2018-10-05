@@ -25,8 +25,6 @@
 
 					</form>
                  </div>
-		
-            
 				
 				<div class="lists">
                     <div class="albumcontainerSearch">
@@ -57,7 +55,8 @@
                                     echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration']."<p>already added</p></div><br>";		
 
                                 }else if ($reserved == 0){
-                                    echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration'].$row['tracks.reserved']."<form action='add.php' method='post'>
+                                    echo "<div class='tracks'>".$row['tracksName']." ".$row['tracksDuration'].$row['tracks.reserved']."
+                                    <form action='add.php' method='post'>
                                     <input type='hidden' name='tracks' value=' $tracksId'>
                                     <button type='submit'>+</button></div></form><br>";		
 
