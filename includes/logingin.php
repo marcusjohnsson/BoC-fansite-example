@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
         exit();
     }else{
         //check to see if it exists or not. if it doesnt exist show error
-        $sql=" SELECT * FROM users WHERE user_uid ='$uid';";
+        $sql=" SELECT * FROM users WHERE user_uid ='$uid' or user_email = '$uid';";
         $result =mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result);
             if ($resultCheck < 1) {
@@ -30,11 +30,11 @@ if (isset($_POST['submit'])) {
                         exit();
                     }else if($hashedpwdCheck == true) {
                         //log in the user here
-                        $_session['u_id'] = $row['user_id'];
-                        $_session['u_first'] = $row['user_first'];   
-                        $_session['u_last'] = $row['user_last'];   
-                        $_session['u_email'] = $row['user_email'];   
-                        $_session['u_id'] = $row['user_uid'];   
+                        $_SESSION['u_id'] = $row['user_id'];
+                        $_SESSION['u_first'] = $row['user_first'];   
+                        $_SESSION['u_last'] = $row['user_last'];   
+                        $_SESSION['u_email'] = $row['user_email'];   
+                        $_SESSION['u_uid'] = $row['user_uid'];   
                         header("Location: ../home.php?login=sucess");
                         exit();
                     }

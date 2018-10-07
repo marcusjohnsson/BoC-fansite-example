@@ -1,6 +1,6 @@
 <?php 
-
 session_start();
+
 if(isset($_POST['submit'])){
     include_once 'dbh.php' ;
 
@@ -34,9 +34,9 @@ if(isset($_POST['submit'])){
                     exit();
                 }else {
                     //check if the username is already taken 
-                    $sql ="SELECT * FROM users WHERE user_uid='$uid'";
+                    $sql ="SELECT * FROM users WHERE user_uid='$uid' or user_email='$email'";
                     $result = mysqli_query($conn, $sql);
-                    $resultCheck = mysqli_num_rows();
+                    $resultCheck = mysqli_num_rows($result);
 
                     if($resultCheck > 0){
                         header("Location: ../signup.php?signup=usertaken");
@@ -47,7 +47,7 @@ if(isset($_POST['submit'])){
                         //INSERT THE USER INTO THE DATABASE
                         $sqlinsert=" INSERT INTO users (user_first, user_last, user_email, user_uid , user_pwd) VALUES ('$first', '$last' , '$email', '$uid', '$hashedpwd')";
                         $result = mysqli_query($conn, $sqlinsert);
-                        header("Location: ../home.php?signup=succes");
+                        header("Location: ../index.php?signup=succes");
                         exit();
                     }
 

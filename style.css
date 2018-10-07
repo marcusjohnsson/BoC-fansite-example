@@ -121,7 +121,24 @@ header {
          cursor: pointer;
      }
 
-
+     #holder {
+         float: right;
+         margin-right: 15px;
+         margin-top:10px;
+     }
+     #holder form {
+        float: left;
+     } 
+     #holder h5 {
+        float: left;
+        margin: 0;
+        padding: 4px;
+        color: goldenrod;
+     } 
+     #holder form button {
+         
+         border-radius: 5%;
+     }
      
 
   /******************homepage********/
@@ -138,7 +155,7 @@ header {
         background-size:cover;
     }
   #blackbox {
-      width: 100%;
+      width: 50%;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -335,6 +352,7 @@ button:hover {
     color: goldenrod;
     font-family: "ocr a extended", sans-serif;  
     padding: 33px; 
+    overflow: scroll;
 }
 .album {
     border: dashed 1px goldenrod;
