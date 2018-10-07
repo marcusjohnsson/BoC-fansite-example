@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
     include 'dbh.php';
     $uid = mysqli_real_escape_string($conn, $_POST['userid']);
     $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
+    
 
     //error handlers
     //check if the inputs are empty 
@@ -28,14 +29,24 @@ if (isset($_POST['submit'])) {
                     if($hashedpwdCheck == false){
                         header("Location: ../index.php?login=wrongpassword");
                         exit();
-                    }else if($hashedpwdCheck == true) {
+                    }elseif($hashedpwdCheck == true && $row['admin'] == 0) {
                         //log in the user here
                         $_SESSION['u_id'] = $row['user_id'];
                         $_SESSION['u_first'] = $row['user_first'];   
                         $_SESSION['u_last'] = $row['user_last'];   
                         $_SESSION['u_email'] = $row['user_email'];   
-                        $_SESSION['u_uid'] = $row['user_uid'];   
+                        $_SESSION['u_uid'] = $row['user_uid'];
+                        $_SESSION['u_admin'] = $row['admin'];  
                         header("Location: ../home.php?login=sucess");
+                        exit();
+                    }elseif($hashedpwdCheck == true && $row['admin'] == 1) {
+                        $_SESSION['u_id'] = $row['user_id'];
+                        $_SESSION['u_first'] = $row['user_first'];   
+                        $_SESSION['u_last'] = $row['user_last'];   
+                        $_SESSION['u_email'] = $row['user_email'];   
+                        $_SESSION['u_uid'] = $row['user_uid'];  
+                        $_SESSION['u_admin'] = $row['admin'];
+                        header("Location: ../admin.php?login=sucess");
                         exit();
                     }
                 }

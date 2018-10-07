@@ -23,13 +23,16 @@
                                 <a class="<?php echo ($currentPage == 'browse.php') ? 'active' : NULL ?>" href="browse.php">Browse</a>
 							</li>
 							<li>
+                                <a class="<?php echo ($currentPage == 'gallery.php') ? 'active' : NULL ?>" href="gallery.php">gallery</a>
+							</li>
+							<li>
 								<a class="<?php echo ($currentPage == 'contact.php') ? 'active' : NULL ?>"  href="contact.php">Contact us</a>
 							</li>
 						</ul>    
 					<?php 
 					if (isset($_SESSION['u_uid'])){
 					echo '<div id="holder"><h5>'.$_SESSION['u_uid'].' '.'</h5><form action="includes/logout.php" method="POST">
-						<button type ="submit" name = "submit">Log out</submit></div>  ' ;
+						<button type ="submit" name = "submit">Log out</submit></div> ' ;
 						
 					}
 					
