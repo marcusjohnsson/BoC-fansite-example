@@ -430,10 +430,81 @@ button:hover {
 input[name=contactSubmit]{
    margin-left: 70%;
 }
+/* admin page */ 
+#htmladmin {
+    background-color: rgb(88, 149, 173);
+}
 
 
+input[type=file]{
+    height: 30px;
+    margin-bottom: 10px;
+    background-color:beige;
+    color: black;
+    line-height: 30px;
+    border-radius: 5%;
+    cursor: pointer;
+    padding: 0 5px;
+}
 
 
+/* gallery  */
+
+
+#galleryContainer {
+    list-style: none;
+    overflow: hidden;
+    font-family: "ocr a extended", sans-serif;
+    width: 100%;
+
+   
+}
+
+#galleryContainer a {
+    float: left;
+    width: 30%;
+    border: dashed 1px white;
+    text-decoration: none;
+    color: azure;
+    text-align: center;
+    margin: 22px 22px;
+    opacity: 0.8;
+}
+#galleryContainer a:hover {
+    opacity: 1;
+    color: goldenrod;
+   
+}
+#galleryContainer a .image {
+    padding: 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+}
+
+#divupload {
+    font-family: "ocr a extended", sans-serif;
+    text-align: center;
+    margin: 44px auto;
+    border: dashed 2px white;
+    padding: 10px;
+    width: 40%;
+}
+#divupload input{
+    height: 30px;
+    margin-bottom: 10px;
+    background-color:beige;
+    color: black;
+    line-height: 30px;
+    border-radius: 5%;
+    cursor: pointer;
+    padding: 0 5px;
+}
+#divupload button {
+    border-radius: 5%;
+    padding: 5px;
+}
 
 
 

@@ -31,8 +31,9 @@
 						</ul>    
 					<?php 
 					if (isset($_SESSION['u_uid'])){
-					echo '<div id="holder"><h5>'.$_SESSION['u_uid'].' '.'</h5><form action="includes/logout.php" method="POST">
-						<button type ="submit" name = "submit">Log out</submit></div> ' ;
+					echo '<div id="holder"><h5>'.$_SESSION['u_uid'].' '.'</h5>
+					<form action="includes/logout.php" method="POST">
+					<button type ="submit" name = "logout">Log out</submit></form></div> ' ;
 						
 					}
 					
