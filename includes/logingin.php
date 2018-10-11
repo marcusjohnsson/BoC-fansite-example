@@ -31,6 +31,7 @@ if (isset($_POST['submit'])) {
                         exit();
                     }elseif($hashedpwdCheck == true && $row['admin'] == 0) {
                         //log in the user here
+                        session_regenerate_id(true);
                         $_SESSION['u_id'] = $row['user_id'];
                         $_SESSION['u_first'] = $row['user_first'];   
                         $_SESSION['u_last'] = $row['user_last'];   
@@ -40,6 +41,7 @@ if (isset($_POST['submit'])) {
                         header("Location: ../home.php?login=sucess");
                         exit();
                     }elseif($hashedpwdCheck == true && $row['admin'] == 1) {
+                        session_regenerate_id(true);
                         $_SESSION['u_id'] = $row['user_id'];
                         $_SESSION['u_first'] = $row['user_first'];   
                         $_SESSION['u_last'] = $row['user_last'];   

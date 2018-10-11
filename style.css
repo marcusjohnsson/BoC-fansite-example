@@ -183,6 +183,15 @@ header {
     background-repeat: no-repeat;
     background-size:cover;
 }
+#myfav {
+    color: darkcyan;
+    font-family: "ocr a extended", sans-serif; 
+    border: dashed 1px goldenrod;
+    text-align: center;
+    margin-bottom: 22px;
+    padding: 11px;
+    
+}
 #listofsongs {
     width: 400px;
     background-color: black;

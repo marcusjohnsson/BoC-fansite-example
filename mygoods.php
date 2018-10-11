@@ -16,6 +16,7 @@
 			</header>
 
 				<div class= "albumcontainer">
+					<div id="myfav"> My favorite tracks</div>
 					<?php
 					// selecting all the data in fav table
 					$sqlSelect = "SELECT tracksId, tracksName, reserved FROM Favorite ";
