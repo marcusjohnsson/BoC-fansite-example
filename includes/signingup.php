@@ -47,7 +47,7 @@ if(isset($_POST['submit'])){
                         //INSERT THE USER INTO THE DATABASE
                         $sqlinsert=" INSERT INTO users (user_first, user_last, user_email, user_uid , user_pwd) VALUES ('$first', '$last' , '$email', '$uid', '$hashedpwd')";
                         $result = mysqli_query($conn, $sqlinsert);
-                        header("Location: ../index.php?signup=succes");
+                        header("Location: ../loginpage.php?signup=succes");
                         exit();
                     }
 

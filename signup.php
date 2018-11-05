@@ -22,7 +22,7 @@ include ('includes/dbh.php');
                 <input type="text" name="pwd" placeholder="Password"><br>
                 <button type="submit" name="submit">Sign up</button>
             </form>
-                <p>already a member? Then <a href="index.php">Log in</a></p>
+                <p>already a member? Then <a href="loginpage.php">Log in</a></p>
                 
 
         </div>

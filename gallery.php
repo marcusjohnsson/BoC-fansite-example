@@ -18,11 +18,8 @@
 				 ?>
                 </header>
               
-                    <?php
-
-
-                         
-                                if($_SESSION['u_admin'] == 1){
+                    <?php                         
+                                if($_SESSION['u_admin'] == 1 || $_SESSION['u_admin'] == 2){
                                     echo '  <div id="divupload">
                         
                                             <form action="upload.php" method="post" enctype="multipart/form-data"><br>

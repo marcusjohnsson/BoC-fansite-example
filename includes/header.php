@@ -1,9 +1,6 @@
     
 	<?php 
 	session_start();
-	
-	
-
 	include ('includes/config.php');
 	include ('includes/dbh.php');
 	?>
@@ -11,7 +8,7 @@
     <nav id="topnav">
 						<ul>
 							<li>
-								<a class="<?php echo ($currentPage == 'home.php' || $currentPage == '') ? 'active' : NULL ?>" href="home.php">Home</a>
+								<a class="<?php echo ($currentPage == 'index.php' || $currentPage == '') ? 'active' : NULL ?>" href="index.php">Home</a>
 							</li>
 							<li>
                             <a class="<?php echo ($currentPage == 'mygoods.php') ? 'active' : NULL ?>" href="mygoods.php">My music</a>
@@ -31,10 +28,23 @@
 						</ul>    
 					<?php 
 					if (isset($_SESSION['u_uid'])){
-					echo '<div id="holder"><h5>'.$_SESSION['u_uid'].' '.'</h5>
-					<form action="includes/logout.php" method="POST">
-					<button type ="submit" name = "logout">Log out</submit></form></div> ' ;
+					echo '<div id="holder"><h5>'.$_SESSION['u_uid'].' '.'</h5>';
+					if(($_SESSION['u_admin'] == 1)){
+						echo'<a href="admin.php" class="red">Admin</a>';
 						
+					};
+					if(($_SESSION['u_admin'] == 2)){
+						echo'<a href="moderator.php" class="red">Moderator</a>';
+					};
+					echo'<form action="includes/logout.php" method="POST">
+					<button type ="submit" name ="logout">Log out</button></form></div> ' ;
+						
+					}else{
+						echo '<div id="holderdiv">
+						<form action="loginpage.php" method="POST">
+					<button type ="submit" name = "login">Login</button></form>
+					<form action="signup.php" method="POST">
+					<button type ="submit" name ="signup">SignUp</button></form></div>';
 					}
 					
 					?>

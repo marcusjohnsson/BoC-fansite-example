@@ -1,27 +1,28 @@
 
-<?php
-
-include ('includes/dbh.php');
-?>
-
-<html id="htmlLogin">
+<!DOCTYPE html>
+<html id="htmlhome">
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>log in</title>
+		<title>Home page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-	</head>
-    <body id="loginbody">
-        <div id="login">
-            <form action="includes/logingin.php" method="post">
-                <input type="text" name="userid" placeholder="username/e-mail"><br>
-                <input type="password" name="pwd" placeholder="password"><br>
-                <button type="submit" name="submit">Log in</button>
-            </form>
-                <p>Not a member yet? <a href="signup.php">Sign up</a></p>
-                
 
-        </div>
-    </body>
+	</head>
+
+		<body id="home">
+			<div id="contentContainer">
+				<header>	
+				
+				<?php include('includes/header.php'); 
+						
+				 ?>
+				</header>
+
+				<div id="blackbox">
+					<h1> boards  of  canada</h1>
+					<h2>a Scottish Electronic Music Duo</h2>
+				</div>
+			</div>
+		</body>
 </html>

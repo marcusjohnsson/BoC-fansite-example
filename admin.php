@@ -14,18 +14,57 @@
 		<body id="admin">
 			<div id="contentContainer">
 				<header>	
-				<?php
-                    include include('includes/header.php'); 
-                  if($_SESSION['u_admin'] == 0) {
-                       header("location: home.php?access=denied");
-                    }
+					<?php
+				 include('includes/header.php'); 
+					if($_SESSION['u_admin'] == 0 || $_SESSION['u_admin'] == 2) {
+						header("location: home.php?access=denied");
+						}
+					?>
+				 </header>
+					<?php
+							
+						$sql="SELECT * FROM users where admin = 0 OR admin =2";
+						$result = mysqli_query($conn, $sql);
+						$resultCheck = mysqli_num_rows($result);
+						if($resultCheck > 0) {
+							echo'<table>
+									<tr>
+										<th>First name</th>
+										<th>Last name</th>
+										<th>email adress</th>
+										<th>User Name</th>
+										<th>Type of User</th>
+									</tr>
+								</table>';
+							while($row = mysqli_fetch_assoc($result)){
+								echo'
+								<form class="tableform" action="includes/editusers.php" method="post">
+									<input type="hidden" name="editusers" value="'.$row['user_id'].'">
+									<button type="submit">edit</button></form>
+									
+									<form class="tableform" action="includes/deleteusers.php" method="post">
+									<input type="hidden" name="deleteusers" value="'.$row['user_id'].'">
+									<button type="submit">delete</button></form>
+							<table>
+								<tr>
+										<td>'.$row['user_first'].'</td>
+										<td>'.$row['user_last'].'</td>
+										<td>'.$row['user_email'].'</td>
+										<td>'.$row['user_uid'].'</td>
+										<td>'.$row['admin'].'</td>
+									</tr>
+							</table>
+							
+							';
+						}
+
+					}
 				 ?>
-				</header>
+
+				
+
                    
-                    <div id="blackbox">
-                        <h1>Welcome to the admin page</h1>
-                        <h2>For now you can only upload photos to the gallery!Go try it!</h2>
-                    </div>
+                    
 			</div>
 		</body>
 </html>

@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     //check if the inputs are empty 
     if (empty($uid) || empty($pwd)) {
         // left empty
-        header("Location: ../index.php?login=empty");
+        header("Location: ../loginpage.php?login=empty");
         exit();
     }else{
         //check to see if it exists or not. if it doesnt exist show error
@@ -20,14 +20,14 @@ if (isset($_POST['submit'])) {
         $result =mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result);
             if ($resultCheck < 1) {
-            header("Location: ../index.php?login=doesntexist");
+            header("Location: ../loginpage.php?login=doesntexist");
             exit();
             }else{
                 if($row=mysqli_fetch_assoc($result)){
                     //de-hashing the password
                     $hashedpwdCheck = password_verify($pwd, $row['user_pwd']);
                     if($hashedpwdCheck == false){
-                        header("Location: ../index.php?login=wrongpassword");
+                        header("Location: ../loginpage.php?login=wrongpassword");
                         exit();
                     }elseif($hashedpwdCheck == true && $row['admin'] == 0) {
                         //log in the user here
@@ -38,9 +38,19 @@ if (isset($_POST['submit'])) {
                         $_SESSION['u_email'] = $row['user_email'];   
                         $_SESSION['u_uid'] = $row['user_uid'];
                         $_SESSION['u_admin'] = $row['admin'];  
-                        header("Location: ../home.php?login=sucess");
+                        header("Location: ../index.php?login=sucess");
                         exit();
                     }elseif($hashedpwdCheck == true && $row['admin'] == 1) {
+                        session_regenerate_id(true);
+                        $_SESSION['u_id'] = $row['user_id'];
+                        $_SESSION['u_first'] = $row['user_first'];   
+                        $_SESSION['u_last'] = $row['user_last'];   
+                        $_SESSION['u_email'] = $row['user_email'];   
+                        $_SESSION['u_uid'] = $row['user_uid'];  
+                        $_SESSION['u_admin'] = $row['admin'];
+                        header("Location: ../admin.php?login=sucess");
+                        exit();
+                    }elseif($hashedpwdCheck == true && $row['admin'] == 2) {
                         session_regenerate_id(true);
                         $_SESSION['u_id'] = $row['user_id'];
                         $_SESSION['u_first'] = $row['user_first'];   
