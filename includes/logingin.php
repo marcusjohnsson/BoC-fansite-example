@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
                         $_SESSION['u_email'] = $row['user_email'];   
                         $_SESSION['u_uid'] = $row['user_uid'];  
                         $_SESSION['u_admin'] = $row['admin'];
-                        header("Location: ../admin.php?login=sucess");
+                        header("Location: ../moderator.php?login=sucess");
                         exit();
                     }
                 }

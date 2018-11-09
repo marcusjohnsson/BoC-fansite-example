@@ -571,5 +571,19 @@ td {
 #editform label input{
     margin-top: 10px;
 }
+#moderator {
+    background-color:lightyellow;
+    color: darkcyan;
+}
+#mod-list {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+#albumform{
+    margin-top: 11px;
+}
+
+
 
 

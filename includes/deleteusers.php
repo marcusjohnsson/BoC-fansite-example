@@ -4,7 +4,7 @@
              session_start();
 
                 if($_SESSION['u_admin']== 0 || $_SESSION['u_admin']== 2) {
-                    header("location: index.php?access=denied");
+                    header("location: ../index.php?access=denied");
                     exit();
                 }
             

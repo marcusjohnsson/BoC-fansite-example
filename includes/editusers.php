@@ -4,7 +4,7 @@
              session_start();
 
                 if($_SESSION['u_admin']== 0 || $_SESSION['u_admin']== 2) {
-                    header("location: index.php?access=denied");
+                    header("location: ../index.php?access=denied");
                     exit();
                 }
             
@@ -23,7 +23,7 @@
                     $usertype = $row['admin'];
                 }
              }
-             echo "<form action='update.php' method='post'>
+             echo "<form style='line-height: 35px;' action='update.php' method='post'>
                 <label for='Firstname'>First Name</label>
                 <input type='text' name='username' value='$userfirst'>
 

@@ -42,9 +42,7 @@
 							if ($queryResults > 0) {
 								$lastAlbum = null;
 								while ($row = mysqli_fetch_assoc($results)) {
-										// echo "<pre>";
-										// var_dump($row);
-										// echo '</pre>';
+									
 									if ($row['albumName'] !== $lastAlbum){
 										$lastAlbum = $row['albumName'];
 										echo '<br>'."<div class='album'>".$row['albumName'].' '.$row['albumDueDate'].'</div>';

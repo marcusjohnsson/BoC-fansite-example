@@ -17,7 +17,7 @@
 					<?php
 				 include('includes/header.php'); 
 					if($_SESSION['u_admin'] == 0 || $_SESSION['u_admin'] == 2) {
-						header("location: home.php?access=denied");
+						header("location: index.php?access=denied");
 						}
 					?>
 				 </header>
