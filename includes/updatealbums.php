@@ -20,27 +20,45 @@
                     //   echo "<pre>";
                     //   var_dump($_POST);
                     //   echo "</pre>";
-                    
-                    foreach ( $_POST['tracksName'] as $track ){
-                        echo $track . " <br>";
-                    }
-                        foreach($_POST['tracksDuration'] as $tracksDu){
-                            echo $tracksDu . " <br>";
+                    $maxtracksName = count($_POST['tracksName']);
+                    for ($i = 0;$i < $maxtracksName;$i++){
+                        echo $tracksName[$i];
+                        echo $tracksDuration[$i];
+                        echo $tracksId[$i];
+
+                        $SqlUpdatetracks = "UPDATE tracks SET 
+                        tracksName = '$tracksName[$i]',
+                        tracksDuration = '$tracksDuration[$i]'
+                        WHERE
+                        tracksId = $tracksId[$i]";
+                        $results = mysqli_query($conn, $SqlUpdatetracks); 
+                        if ($results === TRUE){
+                            header("location: ../moderator.php?update=completed");
+                        }else {
+                            echo "fail";
                         }
-                            foreach($_POST['tracksId'] as $trackId){
-                                echo $trackId . " <br>";
 
-                            }
-
+            }
+                        // foreach ( $_POST['tracksName'] as $track ){
+                        //     echo $track . " <br>";
+                        // }
+                        //     foreach($_POST['tracksDuration'] as $tracksDu){
+                        //         echo $tracksDu . " <br>";
+                        //     }
+                        //         foreach($_POST['tracksId'] as $trackId){
+                        //             echo $trackId . " <br>";
+    
+                        //         }
+                              
                                 // $SqlUpdatetracks = "UPDATE tracks SET 
                                 // tracksName = '$track',
                                 // tracksDuration = '$tracksDu'
                                 // WHERE
                                 // tracksId = $trackId";
                                 // $results = mysqli_query($conn, $SqlUpdatetracks); 
-                                // if($results === TRUE){
-                                //   header("location: ../moderator.php?update=completed");
-                                //    exit();
+                                // // if($results === TRUE){
+                                // //   header("location: ../moderator.php?update=completed");
+                                // //    exit();
                             
 
                         
@@ -57,19 +75,19 @@
                  $result = mysqli_query($conn, $SqlUpdateAlbums);    
                 
 
-                //insert into Tracks 
-                $SqlUpdatetracks = "UPDATE tracks SET 
-                tracksName = '$tracksName',
-                tracksDuration = '$tracksDuration'
-                WHERE
-                tracksId = $tracksId";
-                $results = mysqli_query($conn, $SqlUpdatetracks); 
-                // if($results === TRUE){
-                //     header("location: ../moderator.php?update=completed");
-               // exit();
-                // }else {
-                //     echo"error";
-                // }
+            //     //insert into Tracks 
+            //     $SqlUpdatetracks = "UPDATE tracks SET 
+            //     tracksName = '$tracksName',
+            //     tracksDuration = '$tracksDuration'
+            //     WHERE
+            //     tracksId = $tracksId";
+            //     $results = mysqli_query($conn, $SqlUpdatetracks); 
+            //     // if($results === TRUE){
+            //     //     header("location: ../moderator.php?update=completed");
+            //    // exit();
+            //     // }else {
+            //     //     echo"error";
+            //     // }
                 
                 
                }
